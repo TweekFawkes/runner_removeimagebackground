@@ -10,9 +10,9 @@ build:
     echo "END: Building the runner"
 
 webform:
-  - name: input1
+  - name: image_name
     prompt: Image to Remove Background From
     type: file
 
 launch:
-  command: app.py ${input1}
+  command: app.py ${image_name}

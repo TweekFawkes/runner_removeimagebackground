@@ -1,5 +1,7 @@
-import sys
 import os
+os.environ["NUMBA_DISABLE_FUNCTION_CACHING"] = "1"
+os.environ["NUMBA_CACHE_DIR"] = "/tmp/numba_cache"
+import sys
 from rembg import remove
 from PIL import Image
 
