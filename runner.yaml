@@ -1,0 +1,18 @@
+runner:
+  name: Remove Image Background
+  description: Upload an image, then the Runner leverages python pip module rembg to remove the background to the image.
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building the runner"
+    python3 -m pip install -U -r requirements.txt
+    echo "END: Building the runner"
+
+webform:
+  - name: input1
+    prompt: Image to Remove Background From
+    type: file
+
+launch:
+  command: app.py ${input1}
