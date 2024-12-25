@@ -24,7 +24,7 @@ print(f"[DEBUG] Arguments list: {sys.argv}")
 print("[~] sys.argv[1]")
 file_name = sys.argv[1]
 print(f"[DEBUG] file_name: {file_name}")
-
+print("[~] ---")
 print("[~] Building paths...")
 input_path = os.path.join(os.getcwd(), "inputs", file_name)
 print(f"[DEBUG] Current working directory: {os.getcwd()}")
