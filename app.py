@@ -10,10 +10,11 @@ import sys
 from rembg import remove
 from PIL import Image
 
-# Check if command line argument is provided
-if len(sys.argv) < 2:
-    print("Error: Please provide a file name as an argument")
-    sys.exit(1)
+print("[~] check sys arguments")
+# # Check if command line argument is provided
+# if len(sys.argv) < 2:
+#     print("Error: Please provide a file name as an argument")
+#     sys.exit(1)
 
 file_name = sys.argv[1]
 input_path = os.path.join(os.getcwd(), "inputs", file_name)
