@@ -16,7 +16,10 @@ print("[~] check sys arguments")
 #     print("Error: Please provide a file name as an argument")
 #     sys.exit(1)
 
+print("[~] sys.argv[1]")
 file_name = sys.argv[1]
+print(f"file_name: {file_name}")
+
 input_path = os.path.join(os.getcwd(), "inputs", file_name)
 
 # Create output filename by replacing the extension with .png
