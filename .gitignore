@@ -1,3 +1,10 @@
+
+.DS_Store
+.github/
+.devcontainer/
+outputs/
+inputs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
