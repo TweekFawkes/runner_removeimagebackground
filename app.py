@@ -2,7 +2,7 @@ print("[+] START: RUNNER RemoveImageBackground")
 
 import os
 # os.environ["NUMBA_DISABLE_FUNCTION_CACHING"] = "1"
-
+print("[~] mkdir /tmp/numba_cache")
 os.makedirs("/tmp/numba_cache", exist_ok=True)
 os.environ["NUMBA_CACHE_DIR"] = "/tmp/numba_cache"
 
