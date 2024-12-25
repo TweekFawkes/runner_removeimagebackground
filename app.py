@@ -65,3 +65,5 @@ print(f"[+] Image saved successfully to: {output_path}")
 print(f"[+] Background removed successfully! Saved as: {output_filename}")
 
 print("[+] END: RUNNER RemoveImageBackground")
+print("[~] ---")
+print("[~] ---")
