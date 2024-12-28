@@ -24,12 +24,15 @@ os.environ["NUMBA_CACHE_DIR"] = numba_cache_dir
 print(f"[+] NUMBA_CACHE_DIR set to: {os.environ['NUMBA_CACHE_DIR']}")
 
 print("[~] Setting up numba NUMBA_DISABLE_JIT = 1...")
+os.environ['NUMBA_DISABLE_JIT'] = '1'
+print(f"[+] NUMBA_DISABLE_JIT set to: {os.environ['NUMBA_DISABLE_JIT']}")
 # os.environ['NUMBA_DISABLE_JIT'] = '1'
 # Alternatively, if you need to keep Numba's JIT capabilities but just want to disable parallel processing, you can use:
 from numba import config
-config.DISABLE_JIT = False
+config.DISABLE_JIT = True
 config.THREADING_LAYER = 'workqueue'
-print(f"[+] DISABLE_JIT = False; THREADING_LAYER = workqueue;")
+print(f"[+] DISABLE_JIT = {config.DISABLE_JIT}")
+print(f"[+] THREADING_LAYER = {config.THREADING_LAYER}")
 # print(f"[+] NUMBA_DISABLE_JIT set to: {os.environ['NUMBA_DISABLE_JIT']}")
 
 print("[~] Setting up u2net cache directory...")
