@@ -4,16 +4,36 @@ print("[~] Importing required modules...")
 import os
 print("[+] os module imported successfully")
 
-print("[~] Setting up numba cache directory...")
-print("[~] mkdir /tmp/numba_cache")
-os.makedirs("/tmp/numba_cache", exist_ok=True)
-os.environ["NUMBA_CACHE_DIR"] = "/tmp/numba_cache"
-print(f"[+] NUMBA_CACHE_DIR set to: {os.environ['NUMBA_CACHE_DIR']}")
-
 import sys
 print("[+] sys module imported successfully")
+
+# Print all environment variables
+print("[~] All Environment Variables:")
+for key, value in os.environ.items():
+    print(f"{key}={value}")
+
+print("[~] Setting up numba cache directory...")
+numba_cache_dir = '/tmp/numba_cache'
+print(f"[~] mkdir {numba_cache_dir}")
+os.makedirs(numba_cache_dir, exist_ok=True)
+os.chmod(numba_cache_dir, 0o777)
+os.environ["NUMBA_CACHE_DIR"] = numba_cache_dir
+print(f"[+] NUMBA_CACHE_DIR set to: {os.environ['NUMBA_CACHE_DIR']}")
+
+print("[~] Setting up u2net cache directory...")
+model_dir = '/tmp/.u2net'
+os.makedirs(model_dir, exist_ok=True)
+os.chmod(model_dir, 0o777)
+os.environ["U2NET_HOME"] = model_dir
+print(f"[+] U2NET_HOME set to: {os.environ['U2NET_HOME']}")
 from rembg import remove
 print("[+] rembg.remove imported successfully")
+
+# Print all environment variables
+print("[~] All Environment Variables:")
+for key, value in os.environ.items():
+    print(f"{key}={value}")
+
 from PIL import Image
 print("[+] PIL.Image imported successfully")
 
