@@ -6,6 +6,9 @@ runner:
 build:
   commands: |
     echo "START: Building the runner"
+    mkdir -p /homeawayfromhome/
+    mkdir -p /homeawayfromhome/.u2net/
+    wget https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx -P /homeawayfromhome/.u2net/
     python3 -m pip install -U -r requirements.txt
     echo "END: Building the runner"
 

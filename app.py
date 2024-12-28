@@ -7,6 +7,9 @@ print("[+] os module imported successfully")
 import sys
 print("[+] sys module imported successfully")
 
+import shutil
+print("[+] shutil module imported successfully")
+
 # Print all environment variables
 print("[~] All Environment Variables:")
 for key, value in os.environ.items():
@@ -26,6 +29,29 @@ os.makedirs(model_dir, exist_ok=True)
 os.chmod(model_dir, 0o777)
 os.environ["U2NET_HOME"] = model_dir
 print(f"[+] U2NET_HOME set to: {os.environ['U2NET_HOME']}")
+# Define source and destination paths
+source_path = '/homeawayfromhome/.u2net/u2net.onnx'
+destination_path = os.path.join(model_dir, 'u2net.onnx')
+print(f"[~] Copying u2net.onnx from {source_path} to {destination_path}...")
+#
+try:
+    shutil.copy(source_path, destination_path)
+    print("[+] u2net.onnx copied successfully.")
+except FileNotFoundError:
+    print(f"[ERROR] Source file not found: {source_path}")
+    sys.exit(1)
+except Exception as e:
+    print(f"[ERROR] Failed to copy u2net.onnx: {str(e)}")
+    sys.exit(1)
+#
+print(f"[~] Changing permissions for {destination_path} to 777...")
+try:
+    os.chmod(destination_path, 0o777)
+    print("[+] Permissions set to 777 successfully.")
+except Exception as e:
+    print(f"[ERROR] Failed to change permissions: {str(e)}")
+    sys.exit(1)
+#
 from rembg import remove
 print("[+] rembg.remove imported successfully")
 
