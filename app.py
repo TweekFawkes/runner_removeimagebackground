@@ -29,6 +29,14 @@ print(f"[+] U2NET_HOME set to: {os.environ['U2NET_HOME']}")
 from rembg import remove
 print("[+] rembg.remove imported successfully")
 
+print("[~] Setting up HOME cache directory...")
+root_dir = '/tmp/root'
+os.makedirs(root_dir, exist_ok=True)
+os.chmod(root_dir, 0o777)
+os.environ["HOME"] = root_dir
+print(f"[+] HOME set to: {os.environ['HOME']}")
+print("[+] HOME imported successfully")
+
 # Print all environment variables
 print("[~] All Environment Variables:")
 for key, value in os.environ.items():
