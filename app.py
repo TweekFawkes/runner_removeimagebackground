@@ -15,6 +15,14 @@ print("[~] All Environment Variables:")
 for key, value in os.environ.items():
     print(f"{key}={value}")
 
+print("[~] Setting up numba NUMBA_DISABLE_JIT = 1...")
+os.environ['NUMBA_DISABLE_JIT'] = '1'
+# Alternatively, if you need to keep Numba's JIT capabilities but just want to disable parallel processing, you can use:
+#from numba import config
+#config.DISABLE_JIT = False
+#config.THREADING_LAYER = 'workqueue'
+print(f"[+] NUMBA_DISABLE_JIT set to: {os.environ['NUMBA_DISABLE_JIT']}")
+
 print("[~] Setting up numba cache directory...")
 numba_cache_dir = '/tmp/numba_cache'
 print(f"[~] mkdir {numba_cache_dir}")
